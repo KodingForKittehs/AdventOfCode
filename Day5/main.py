@@ -2,8 +2,8 @@ import re
 
 
 def empty_line(input):
-    for i in range(len(input)):
-        if not input[i].strip():
+    for i, c in enumerate(input):
+        if not c.strip():
             return i
     return -1
 
@@ -13,22 +13,16 @@ def get_list_num(line):
     return int(last)
 
 
-def move_item(lists, start, end):
-    item = lists[start - 1].pop()
-    lists[end - 1].append(item)
-
-
-def move_multiple(lists, num, start, end):
+def move_items(lists, num, start, end):
     tmp = []
     for i in range(num):
         item = lists[start - 1].pop()
         tmp.append(item)
-    tmp = list(reversed(tmp))
-    lists[end - 1].extend(tmp)
+    lists[end - 1].extend(reversed(tmp))
 
 
 def read_state():
-    input = [line for line in open('input.txt')]
+    input = [line for line in open('Day5/input.txt')]
 
     empty = empty_line(input)
     list_num = get_list_num(input[empty - 1])
@@ -54,7 +48,7 @@ def problem1():
     lists, moves = read_state()
     for move in moves:
         for i in range(move[0]):
-            move_item(lists, move[1], move[2])
+            move_items(lists, 1, move[1], move[2])
     result = ''
     for lst in lists:
         result += lst[-1]
@@ -64,7 +58,7 @@ def problem1():
 def problem2():
     lists, moves = read_state()
     for move in moves:
-        move_multiple(lists, move[0], move[1], move[2])
+        move_items(lists, move[0], move[1], move[2])
     result = ''
     for lst in lists:
         result += lst[-1]
