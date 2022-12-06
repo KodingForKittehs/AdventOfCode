@@ -70,7 +70,7 @@ def problem2():
 class ProblemTestCase(unittest.TestCase):
 
     def test_problem1(self):
-        self.assertEqual(problem1(), 'FCVRLMVQP')
+        self.assertEqual("should fail", 'FCVRLMVQP')
 
     def test_problem2(self):
         self.assertEqual(problem2(), 'RWLWGJGFD')
