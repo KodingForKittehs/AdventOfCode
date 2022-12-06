@@ -39,7 +39,7 @@ def read_state():
 
     moves = []
     for i in range(empty + 1, len(input)):
-        vals = re.findall('\d+', input[i])
+        vals = re.findall(r'\d+', input[i])
         moves.append((int(vals[0]), int(vals[1]), int(vals[2])))
     return lists, moves
 
