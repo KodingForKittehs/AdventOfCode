@@ -39,30 +39,30 @@ def read_state():
 
     moves = []
     for i in range(empty + 1, len(input)):
-        vals = re.findall(r'\d+', input[i])
-        moves.append((int(vals[0]), int(vals[1]), int(vals[2])))
+        vals = [int(i) for i in re.findall(r'\d+', input[i])]
+        moves.append(vals)
     return lists, moves
 
+
+def to_output(lists):
+    result = ''
+    for lst in lists:
+        result += lst[-1]
+    return result
 
 def problem1():
     lists, moves = read_state()
     for move in moves:
         for i in range(move[0]):
             move_items(lists, 1, move[1], move[2])
-    result = ''
-    for lst in lists:
-        result += lst[-1]
-    return result
+    return to_output(lists)
 
 
 def problem2():
     lists, moves = read_state()
     for move in moves:
         move_items(lists, move[0], move[1], move[2])
-    result = ''
-    for lst in lists:
-        result += lst[-1]
-    return result
+    return to_output(lists)
 
 
 print(f'Problem 1: {problem1()}')
