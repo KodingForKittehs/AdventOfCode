@@ -1,4 +1,5 @@
 import re
+import unittest
 
 
 def empty_line(input):
@@ -22,7 +23,8 @@ def move_items(lists, num, start, end):
 
 
 def read_state():
-    input = [line for line in open('Day5/input.txt')]
+    with open('Day5/input.txt') as file:
+        input = [line for line in file.readlines()]
 
     empty = empty_line(input)
     list_num = get_list_num(input[empty - 1])
@@ -63,6 +65,15 @@ def problem2():
     for move in moves:
         move_items(lists, move[0], move[1], move[2])
     return to_output(lists)
+
+
+class ProblemTestCase(unittest.TestCase):
+
+    def test_problem1(self):
+        self.assertEqual(problem1(), 'FCVRLMVQP')
+
+    def test_problem2(self):
+        self.assertEqual(problem2(), 'RWLWGJGFD')
 
 
 print(f'Problem 1: {problem1()}')

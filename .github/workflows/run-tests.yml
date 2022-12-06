@@ -1,0 +1,12 @@
+name: run-tests
+      
+on:
+  push:
+    branches: master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          python3 -m unittest Day5.main
