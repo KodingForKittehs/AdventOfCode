@@ -58,5 +58,5 @@ class ProblemTestCase(unittest.TestCase):
         self.assertEqual(problem2(), 806)
 
 
-print(f'Problem 1: {problem1()}')
-print(f'Problem 2: {problem2()}')
+if __name__ == '__main__':
+    unittest.main()
