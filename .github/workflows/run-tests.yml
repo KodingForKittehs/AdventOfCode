@@ -11,3 +11,4 @@ jobs:
       - run: |
           python3 -m unittest Day4.main
           python3 -m unittest Day5.main
+          python3 -m unittest Day9.main
