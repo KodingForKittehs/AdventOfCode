@@ -1,6 +1,7 @@
+import unittest
+
 heights = []
 visible = []
-scenic_max = 0
 
 dirs = [
     (0, 1),
@@ -42,38 +43,53 @@ def get_scenic(i, j):
     return res[0] * res[1] * res[2] * res[3]
 
 
-for i in range(h):
-    mx = -1
-    for j in range(w):
-        if heights[i][j] > mx:
-            mx = heights[i][j]
-            visible[i][j] = True
-    mx = -1
-    for j in range(w - 1, -1, -1):
-        if heights[i][j] > mx:
-            mx = heights[i][j]
-            visible[i][j] = True
+def problem():
+    scenic_max = 0
 
-for j in range(w):
-    mx = -1
     for i in range(h):
-        if heights[i][j] > mx:
-            mx = heights[i][j]
-            visible[i][j] = True
-    mx = -1
-    for i in range(h - 1, -1, -1):
-        if heights[i][j] > mx:
-            mx = heights[i][j]
-            visible[i][j] = True
+        mx = -1
+        for j in range(w):
+            if heights[i][j] > mx:
+                mx = heights[i][j]
+                visible[i][j] = True
+        mx = -1
+        for j in range(w - 1, -1, -1):
+            if heights[i][j] > mx:
+                mx = heights[i][j]
+                visible[i][j] = True
 
-sum = 0
-for i in range(h):
     for j in range(w):
-        if visible[i][j]:
-            sum += 1
-        scenic_max = max(
-            scenic_max,
-            get_scenic(i, j))
+        mx = -1
+        for i in range(h):
+            if heights[i][j] > mx:
+                mx = heights[i][j]
+                visible[i][j] = True
+        mx = -1
+        for i in range(h - 1, -1, -1):
+            if heights[i][j] > mx:
+                mx = heights[i][j]
+                visible[i][j] = True
 
-print(f'Problem 1: {sum}')
-print(f'Problem 2: {scenic_max}')
+    sum = 0
+    for i in range(h):
+        for j in range(w):
+            if visible[i][j]:
+                sum += 1
+            scenic_max = max(
+                scenic_max,
+                get_scenic(i, j))
+
+    return sum, scenic_max
+
+
+class ProblemTestCase(unittest.TestCase):
+
+    def test_problem1(self):
+        self.assertEqual(problem()[0], 1669)
+
+    def test_problem2(self):
+        self.assertEqual(problem()[1], 331344)
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -11,7 +11,7 @@ class Directory:
         self.alldirs.append(self)
 
 
-input = [line.strip() for line in open('Day6/input2.txt').readlines()]
+input = [line.strip() for line in open('Day7/input.txt').readlines()]
 root_dir = Directory('/')
 current = root_dir
 
