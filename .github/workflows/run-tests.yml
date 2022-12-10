@@ -8,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          python3 -m unittest Day4.main
-          python3 -m unittest Day5.main
-          python3 -m unittest Day9.main
+      - name: Run Tests
+        run: |
+          pip install coverage
+          coverage run -m unittest  Day4.main
+          coverage run -m unittest Day5.main
+          coverage run -m unittest Day9.main
