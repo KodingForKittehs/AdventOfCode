@@ -11,6 +11,7 @@ jobs:
       - name: Run Tests
         run: |
           pip install coverage
+          coverage run --append -m unittest Day1.main
           coverage run --append -m unittest Day4.main
           coverage run --append -m unittest Day5.main
           coverage run --append -m unittest Day6.main
