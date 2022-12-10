@@ -1,3 +1,5 @@
+import unittest
+
 file = 'Day3/input.txt'
 input = [line.strip() for line in open(file).readlines()]
 
@@ -14,7 +16,7 @@ def chunks(lst, n):
         yield lst[i:i + n]
 
 
-def problem_1():
+def problem1():
     result = 0
     for line in input:
         s = set()
@@ -28,7 +30,7 @@ def problem_1():
     return result
 
 
-def problem_2():
+def problem2():
     result = 0
     for bags in chunks(input, 3):
         for c in bags[0]:
@@ -38,6 +40,14 @@ def problem_2():
     return result
 
 
-if __name__ == "__main__":
-    print(f'Part 1 solution: {problem_1()}')
-    print(f'Part 2 solution: {problem_2()}')
+class ProblemTestCase(unittest.TestCase):
+
+    def test_problem1(self):
+        self.assertEqual(problem1(), 8139)
+
+    def test_problem2(self):
+        self.assertEqual(problem2(), 2668)
+
+
+if __name__ == '__main__':
+    unittest.main()
