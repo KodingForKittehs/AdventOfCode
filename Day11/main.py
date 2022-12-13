@@ -2,6 +2,7 @@ import unittest
 from collections import deque
 
 class Monkey:
+    lcm = 1
     def __init__(self):
         self.items = deque()
         self.operator = None
@@ -25,22 +26,23 @@ def problem(input, rounds, worry):
                     monkeys[-1].operator = line.split('=')[1].strip()
                 case ['Test:', *_, val]:
                     monkeys[-1].divide = int(val)
+                    Monkey.lcm *= int(val)
                 case ['If', 'true:', *_, val]:
                     monkeys[-1].if_true = int(val)
                 case ['If', 'false:', *_, val]:
                     monkeys[-1].if_false = int(val)
 
     for round in range(rounds):
-        print(round)
         for monkey in monkeys:
             while monkey.items:
                 item = monkey.items.popleft()
                 monkey.count += 1
                 old = item
                 item = eval(monkey.operator)
-                print(item)
                 if worry:
                     item = item // 3
+                else:
+                    item = item % Monkey.lcm
                 if item % monkey.divide == 0:
                     monkeys[monkey.if_true].items.append(item)
                 else:
@@ -54,7 +56,8 @@ class ProblemTestCase(unittest.TestCase):
     def test_problem(self):
         self.assertEqual(problem('Day11/sample1.txt', 20, True), 10605)
         self.assertEqual(problem('Day11/input1.txt', 20, True), 98280)
-        #self.assertEqual(problem('Day11/sample1.txt', 10000, False), 2713310158)
+        self.assertEqual(problem('Day11/sample1.txt', 10000, False), 2713310158)
+        self.assertEqual(problem('Day11/input1.txt', 10000, False), 17673687232)
 
 
 if __name__ == '__main__':
