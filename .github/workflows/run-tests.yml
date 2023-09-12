@@ -25,4 +25,5 @@ jobs:
           coverage run --append -m unittest Day12.main
           coverage run --append -m unittest Day13.main
           coverage run --append -m unittest Day14.main
+          coverage run --append -m unittest Day15.main
           coverage report -m
