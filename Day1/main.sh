@@ -10,9 +10,17 @@ while read -r line; do
     sum=0
   else
     sum=$((sum + line))
-    #echo $line, $sum
   fi
 done < input
 }
 
+function sum {
+  sum=0
+  while read -r line; do
+    sum=$((sum + line))
+  done
+  echo $sum
+}
+
 print_sums | sort -n | tail -n 1
+print_sums | sort -n | tail -n 3 | sum
