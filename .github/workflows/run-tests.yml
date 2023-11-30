@@ -12,7 +12,7 @@ jobs:
         run: |
           pip install coverage
           for day in {1..14}; do
-            coverage run --append -m unittest 2022/Day${day}.main
+            coverage run --append -m unittest 2022.Day${day}.main
           done
           # coverage run --append -m unittest Day15.main
           coverage report -m
