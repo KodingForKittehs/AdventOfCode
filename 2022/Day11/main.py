@@ -58,9 +58,9 @@ def problem(input, rounds, worry):
 class ProblemTestCase(unittest.TestCase):
 
     def test_problem(self):
-        self.assertEqual(problem('Day11/sample1.txt', 20, True), 10605)
+        self.assertEqual(problem(sample_file, 20, True), 10605)
         self.assertEqual(problem(input_file, 20, True), 98280)
-        self.assertEqual(problem('Day11/sample1.txt', 10000, False), 2713310158)
+        self.assertEqual(problem(sample_file, 10000, False), 2713310158)
         self.assertEqual(problem(input_file, 10000, False), 17673687232)
 
 
