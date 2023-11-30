@@ -1,4 +1,7 @@
 import unittest
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
 
 def instruction_generator(input):
     with open(input) as file:
@@ -56,10 +59,10 @@ class ProblemTestCase(unittest.TestCase):
         self.assertEqual(should_sum(60), True)
 
     def test_sample1(self):
-        self.assertEqual(problem('Day10/sample1.txt')[0], 13140)
+        self.assertEqual(problem(input_file)[0], 13140)
 
     def test_input1(self):
-        res = problem('Day10/input1.txt')
+        res = problem(input_file)
         self.assertEqual(res[0], 12520)
 
         expected_crt = [

@@ -1,6 +1,9 @@
 import unittest
 from collections import deque
+import pathlib
 
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
+sample_file = f"{pathlib.Path(__file__).parent}/sample.txt"
 
 def start_end(grid):
     for i, ic in enumerate(grid):
@@ -83,9 +86,9 @@ def problem2(input, user_start=None):
 class ProblemTestCase(unittest.TestCase):
 
     def test_problem(self):
-        self.assertEqual(problem('Day12/sample1.txt'), 31)
-        self.assertEqual(problem('Day12/input1.txt'), 425)
-        self.assertEqual(problem2('Day12/input1.txt'), 418)
+        self.assertEqual(problem(sample_file), 31)
+        self.assertEqual(problem(input_file), 425)
+        self.assertEqual(problem2(input_file), 418)
 
 
 if __name__ == '__main__':

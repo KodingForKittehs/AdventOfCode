@@ -1,5 +1,8 @@
 import re
 import unittest
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
 
 
 def empty_line(input):
@@ -23,7 +26,7 @@ def move_items(lists, num, start, end):
 
 
 def read_state():
-    with open('Day5/input.txt') as file:
+    with open(input_file) as file:
         input = [line for line in file.readlines()]
 
     empty = empty_line(input)

@@ -1,6 +1,8 @@
 import unittest
+import pathlib
 
-input = [line.strip() for line in open('Day4/input.txt').readlines()]
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
+input = [line.strip() for line in open(input_file).readlines()]
 
 
 def fully_overlap(str):

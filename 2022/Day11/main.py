@@ -1,5 +1,9 @@
 import unittest
 from collections import deque
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
+sample_file = f"{pathlib.Path(__file__).parent}/sample.txt"
 
 class Monkey:
     lcm = 1
@@ -55,9 +59,9 @@ class ProblemTestCase(unittest.TestCase):
 
     def test_problem(self):
         self.assertEqual(problem('Day11/sample1.txt', 20, True), 10605)
-        self.assertEqual(problem('Day11/input1.txt', 20, True), 98280)
+        self.assertEqual(problem(input_file, 20, True), 98280)
         self.assertEqual(problem('Day11/sample1.txt', 10000, False), 2713310158)
-        self.assertEqual(problem('Day11/input1.txt', 10000, False), 17673687232)
+        self.assertEqual(problem(input_file, 10000, False), 17673687232)
 
 
 if __name__ == '__main__':

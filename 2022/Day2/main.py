@@ -1,5 +1,7 @@
 import unittest
+import pathlib
 
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
 
 def piece_score(p):
     return ord(p) - 87
@@ -52,7 +54,7 @@ def get_play(a, b):
 def problem():
     sum1 = 0
     sum2 = 0
-    with open('Day2/input.txt') as file:
+    with open(input_file) as file:
         for line in file.readlines():
             p = line.split()
             play = get_play(*p)

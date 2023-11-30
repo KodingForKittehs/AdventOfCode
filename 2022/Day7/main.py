@@ -1,4 +1,7 @@
 import unittest
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
 
 class Directory:
     alldirs = []
@@ -11,7 +14,7 @@ class Directory:
         self.alldirs.append(self)
 
 
-input = [line.strip() for line in open('Day7/input.txt').readlines()]
+input = [line.strip() for line in open(input_file).readlines()]
 root_dir = Directory('/')
 current = root_dir
 

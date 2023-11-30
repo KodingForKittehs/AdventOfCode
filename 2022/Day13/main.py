@@ -1,5 +1,9 @@
 import unittest
 from functools import cmp_to_key
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input1.txt"
+sample_file = f"{pathlib.Path(__file__).parent}/sample1.txt"
 
 def in_order(a, b):
     if type(a) == int and type(b) == int:
@@ -57,10 +61,10 @@ class ProblemTestCase(unittest.TestCase):
         self.assertEqual(in_order([1, 1, 3, 1, 1], [1, 1, 5, 1, 1]), -1)
         self.assertEqual(in_order([7, 7], [7]), 1)
         self.assertEqual(in_order([1, 1], 2), -1)
-        samp = problem('Day13/sample1.txt')
+        samp = problem(sample_file)
         self.assertEqual(samp[0], 13)
         self.assertEqual(samp[1], 140)
-        res = problem('Day13/input1.txt')
+        res = problem(input_file)
         self.assertEqual(res[0], 5717)
         self.assertEqual(res[1], 25935)
 

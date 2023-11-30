@@ -1,4 +1,7 @@
 import unittest
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
 
 heights = []
 visible = []
@@ -10,7 +13,7 @@ dirs = [
     (-1, 0)
 ]
 
-with open("Day8/input.txt") as file:
+with open(input_file) as file:
     for line in file.readlines():
         line = line.strip()
         heights.append([int(h) for h in line])

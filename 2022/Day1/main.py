@@ -1,11 +1,14 @@
 import unittest
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
 
 def problem():
     best = 0
     sum = 0
     sums = []
 
-    with open('Day1/input.txt') as file:
+    with open(input_file) as file:
         for i in file.readlines():
             if i.strip() == '':
                 best = max(best, sum)

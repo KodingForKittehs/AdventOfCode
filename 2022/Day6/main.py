@@ -1,7 +1,10 @@
 import unittest
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
 
 def problem(size):
-    with open('Day6/input.txt') as file:
+    with open(input_file) as file:
         line = file.readline()
         for i, c in enumerate(line):
             s = set()

@@ -1,4 +1,8 @@
 import unittest
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input1.txt"
+sample_file = f"{pathlib.Path(__file__).parent}/sample1.txt"
 
 dirs = [
     (1, 0),
@@ -87,10 +91,10 @@ def problem2(input):
 class ProblemTestCase(unittest.TestCase):
 
     def test_problem(self):
-        self.assertEqual(problem1('Day14/sample1.txt'), 24)
-        self.assertEqual(problem1('Day14/input1.txt'), 672)
-        self.assertEqual(problem2('Day14/sample1.txt'), 93)
-        self.assertEqual(problem2('Day14/input1.txt'), 26831)
+        self.assertEqual(problem1(sample_file), 24)
+        self.assertEqual(problem1(input_file), 672)
+        self.assertEqual(problem2(sample_file), 93)
+        self.assertEqual(problem2(input_file), 26831)
 
 
 if __name__ == '__main__':

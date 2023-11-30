@@ -1,6 +1,10 @@
 import sys
 import re
 import unittest
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input1.txt"
+sample_file = f"{pathlib.Path(__file__).parent}/sample1.txt"
 
 dirs = []
 
@@ -61,11 +65,11 @@ class ProblemTestCase(unittest.TestCase):
     def test_problem(self):
         self.assertEqual(manhatten((1, 6), (5, 3)), 7)
         self.assertEqual(manhatten((0, 0), (1, 1)), 2)
-        self.assertEqual(problem1("Day15/sample1.txt", 10), 26)
-        self.assertEqual(problem1("Day15/input1.txt", 2000000), 4424278)
+        self.assertEqual(problem1(sample_file, 10), 26)
+        self.assertEqual(problem1(input_file, 2000000), 4424278)
         # self.assertGreater(problem1('Day15/input2.txt', 2000000), 2887170)
 
-        self.assertEqual(problem2("Day15/sample1.txt"), 56000011)
+        self.assertEqual(problem2(sample_file), 56000011)
         # self.assertEqual(problem2('Day15/sample1.txt'), 56000011)
 
 

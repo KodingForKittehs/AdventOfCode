@@ -1,4 +1,7 @@
 import unittest
+import pathlib
+
+input_file = f"{pathlib.Path(__file__).parent}/input.txt"
 
 def move(start, dir):
     return (start[0] + dir[0], start[1] + dir[1])
@@ -37,7 +40,7 @@ def problem(rope_size):
     knots = [(0, 0)] * rope_size
     tail_visited = set([(0, 0)])
 
-    with open('Day9/input.txt') as file:
+    with open(input_file) as file:
         for line in file.readlines():
             dir, steps = parse_line(line)
             for _ in range(steps):
